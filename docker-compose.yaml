@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  web:
+    build: ./web_app/.
+    ports:
+      - "80:80"
+
+  spider:
+    build: ./data_collection/.
+    env_file:
+      - ./data_collection/.env
+    platform : linux/amd64
+
+    

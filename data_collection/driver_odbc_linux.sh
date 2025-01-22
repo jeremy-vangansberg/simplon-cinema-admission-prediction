@@ -1,9 +1,15 @@
-sudo apt-get install odbcinst
+# Installation de lsb-release si nécessaire
+apt-get update && apt-get install -y lsb-release
 
-sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+if ! [[ "18.04 20.04 22.04 23.04" == *"$(lsb_release -rs)"* ]];
+then
+    echo "Ubuntu $(lsb_release -rs) is not currently supported.";
+    exit;
+fi
 
-echo "deb [arch=amd64] https://packages.microsoft.com/ubuntu/21.10/prod impish main" | sudo tee /etc/apt/sources.list.d/mssql-release.list
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
 
-sudo apt update
+curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
 
-sudo ACCEPT_EULA=Y apt install msodbcsql18
+sudo apt-get update
+sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18

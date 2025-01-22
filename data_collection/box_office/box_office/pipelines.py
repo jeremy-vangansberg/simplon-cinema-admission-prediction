@@ -190,6 +190,7 @@ class FeaturesPipeline:
             hour = int(list_hour[0]) * 60
             minutes = int(list_hour[1])
         elif len(list_hour) == 0:
+
             return 0
         else:
             if 'm' in duree:

@@ -1,5 +1,5 @@
 # Use the official Apache Airflow image as a base image
-FROM apache/airflow:2.2.0
+FROM apache/airflow:2.6.0
 
 # Copy requirements and install them as root
 COPY requirements.txt /tmp/requirements.txt
