@@ -22,7 +22,7 @@ Ce projet est un système complet de prédiction des entrées en salle de ciném
 
 1. Cloner le repository :
 ```bash
-git clone [URL_DU_REPO]
+git clone https://github.com/jeremy-vangansberg/simplon-cinema-admission-prediction.git
 cd cinema-admission-prediction
 ```
 
